@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>CPC YM Player (Vanilla JS)</title>
+  
+  <link rel="stylesheet" href="style.css">
+
+  <!-- LHA (décompression côté navigateur) -->
+  <script src="https://cdn.jsdelivr.net/gh/kyz/lha.js/lha.js"></script>
+
+  <!-- Lib JS LHA [5](https://github.com/kyz/lha.js/wiki) -->
+  
+</head>
+<body>
+  <header>
+    <h1>CPC YM Player – Canaux indépendants (A/B/C + bruit)</h1>
+  </header>
+
+  <section id="import">
+    <input id="fileInput" type="file" accept=".ym,.lha,.lzh,.ay" />
+    <button id="loadBtn">📥 Charger</button>
+    <span id="meta"></span>
+  </section>
+
+  <section id="controls">
+    <div class="row">
+      <label><input type="checkbox" id="muteA" /> Mute A</label>
+      <label>Vol A <input type="range" id="volA" min="0" max="1.5" step="0.01" value="1.0" /></label>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" id="muteB" /> Mute B</label>
+      <label>Vol B <input type="range" id="volB" min="0" max="1.5" step="0.01" value="1.0" /></label>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" id="muteC" /> Mute C</label>
+      <label>Vol C <input type="range" id="volC" min="0" max="1.5" step="0.01" value="1.0" /></label>
+    </div>
+    <div class="row">
+      <label>Vol Bruit <input type="range" id="volN" min="0" max="1.0" step="0.01" value="0.15" /></label>
+    </div>
+  </section>
+
+  <section id="transport">
+    <button id="playBtn">▶️ Play</button>
+    <button id="stopBtn">⏹ Stop</button>
+    <span id="status"></span>
+  </section>
+
+  
+  <section id="viz">
+    <h3>Oscilloscope</h3>
+    <div id="oscHost"></div>
+    <h3>Spectrogramme</h3>
+    <div id="specHost"></div>
+  </section>
+
+
+  <footer>
+    <small>⚠️ v1 : Support **YM** (YM5/6 simplifié). **AY** (ZXAYEMUL) détecté mais non rejoué sans émulateur Z80. YM est
+      généralement **compressé en LHA/LZH**. [1](https://www.vgmpf.com/Wiki/index.php/YM)[2](https://vgmpf.com/Wiki/index.php?title=AY)</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
